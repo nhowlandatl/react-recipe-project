@@ -1,20 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
+import Form from './components/Form';
 import Recipe from './components/Recipe';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
 // Redux store setup
 const initialState = {
-  count: 0
+  value: '',
+  recipe: {}
 }
 
 // Write functions for your reducer here
 function reducer(state = initialState, action) {
-  // blah blah
+  switch(action.type) {
+    case 'GET_RECIPE':
+      return {
+        recipe: state.recipe
+      }
+  default:
+    return state;
+  }
 }
 
 // Reducer store
@@ -23,7 +32,8 @@ const store = createStore(reducer);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>  
-      <Recipe/>
+    
+      <Form/>
     </Provider>  
   </React.StrictMode>,
   document.getElementById('root')
