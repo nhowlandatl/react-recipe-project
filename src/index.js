@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 // Redux store setup
 const initialState = {
   value: '',
-  recipe: {}
+  recipes: [{title: 'test recipe'}]
 }
 
 // Write functions for your reducer here
@@ -19,7 +19,8 @@ function reducer(state = initialState, action) {
   switch(action.type) {
     case 'GET_RECIPE':
       return {
-        recipe: state.recipe
+        ...state,
+        recipes: action.payload
       }
   default:
     return state;
@@ -32,7 +33,7 @@ const store = createStore(reducer);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>  
-    
+      <Recipe/>
       <Form/>
     </Provider>  
   </React.StrictMode>,
