@@ -26,7 +26,7 @@ function reducer(state = initialState, action) {
     case 'ADD_INGREDIENT':
       return {
         ...state,
-        ingredients: action.payload
+        ingredients: state.ingredients.push(action.payload)
       }
   default:
     return state;
