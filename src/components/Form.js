@@ -29,7 +29,6 @@ class Form extends Component {
   addIngredient = () => {
     // Here I want to add the local react state value (what was just typed) to the redux store as an ingredient
     this.props.addIngredient(this.state.value);
-    console.log(this.props.ingredients)
   }
     // getRecipe = () => {
     //     return axios({

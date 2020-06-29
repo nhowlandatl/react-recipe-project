@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import Form from './components/Form';
 import Recipe from './components/Recipe';
+import Ingredient from './components/Ingredient'; 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
@@ -12,7 +13,7 @@ import { Provider } from 'react-redux';
 const initialState = {
   value: '',
   recipes: [{title: 'test recipe'}],
-  ingredients: ['oregano']
+  ingredients: []
 }
 
 // Write functions for your reducer here
@@ -26,7 +27,7 @@ function reducer(state = initialState, action) {
     case 'ADD_INGREDIENT':
       return {
         ...state,
-        ingredients: state.ingredients.push(action.payload)
+        ingredients: state.ingredients.concat(action.payload)
       }
   default:
     return state;
@@ -41,6 +42,7 @@ ReactDOM.render(
     <Provider store={store}>  
       <Recipe/>
       <Form/>
+      <Ingredient/>
     </Provider>  
   </React.StrictMode>,
   document.getElementById('root')
