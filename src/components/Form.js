@@ -26,10 +26,10 @@ class Form extends Component {
     event.preventDefault();
   }
   // Add ingredient function
-  // addIngredient = () => {
-  //   // Add the local state value (what was typed) to the redux store
-  //   this.props.addIngredient(this.state.value);
-  // }
+  addIngredient = () => {
+    // Here I want to add the local react state value (what was just typed) to the redux store as an ingredient
+    this.props.addIngredient(this.state.value);
+  }
     // getRecipe = () => {
     //     return axios({
     //         "method":"GET",
