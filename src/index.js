@@ -11,7 +11,8 @@ import { Provider } from 'react-redux';
 // Redux store setup
 const initialState = {
   value: '',
-  recipes: [{title: 'test recipe'}]
+  recipes: [{title: 'test recipe'}],
+  ingredients: ['oregano']
 }
 
 // Write functions for your reducer here
@@ -21,6 +22,11 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         recipes: action.payload
+      }
+    case 'ADD_INGREDIENT':
+      return {
+        ...state,
+        ingredients: action.payload
       }
   default:
     return state;

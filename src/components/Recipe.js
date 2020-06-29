@@ -15,7 +15,7 @@ class Recipe extends Component {
 
 function mapStateToProps(state) {
   return {
-    recipes: state.recipes
+    recipes: state.recipes 
   }
 }
 

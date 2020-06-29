@@ -2,59 +2,60 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { FormControl, Button, InputGroup } from 'react-bootstrap';
-// I think i need to refactor this. I think im using a mix of react state and redux
 
-
-// Do I need to have an export in front of this?
 class Form extends Component {
-
+// Need to refactor to stop using the local state
   constructor(props) {
     super(props);
-    // Do I need this stuff below? I need to take user form input
     this.state = {
-      value: '',
-      recipe: {}
+      value: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // Should all this be in the reducer in the index.js file? Where should this be?
+  // This should change to use the Redux store to save the ingredients as an array
+  // Ingredient list can map to redux store
   handleChange(event) {    
     this.setState({value: event.target.value});  
   }
-
+// Kick off add ingredient function on submit
   handleSubmit(event) {
-    this.getRecipe();
-    // alert('An ingredient was submitted: ' + this.state.value); 
+    this.addIngredient(); 
+    // this.getRecipe(); 
     event.preventDefault();
   }
-    // does this logic go here or in index.js??
-    getRecipe = () => {
-        return axios({
-            "method":"GET",
-            "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-            "headers":{
-            "content-type":"application/octet-stream",
-            "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key":"40cb3a8377mshdada20219265609p14adc3jsn41c73db521e2",
-            "useQueryString":true
-            },"params":{
-            "number":"5",
-            "ranking":"1",
-            "ignorePantry":"false",
-            "ingredients":"apples%2Cflour%2Csugar"
-            }
-            })
-            .then((response)=>{
-              console.log(response)
-              // This dispatches the action to redux
-              this.props.getRecipe(response.data);
-            })
-            .catch((error)=>{
-              console.log(error)
-            })
-    }
+  // Add ingredient function
+  // addIngredient = () => {
+  //   // Add the local state value (what was typed) to the redux store
+  //   this.props.addIngredient(this.state.value);
+  // }
+    // getRecipe = () => {
+    //     return axios({
+    //         "method":"GET",
+    //         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+    //         "headers":{
+    //         "content-type":"application/octet-stream",
+    //         "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    //         "x-rapidapi-key":"40cb3a8377mshdada20219265609p14adc3jsn41c73db521e2",
+    //         "useQueryString":true
+    //         },"params":{
+    //         "number":"5",
+    //         "ranking":"1",
+    //         "ignorePantry":"false",
+    //         "ingredients":"apples%2Cflour%2Csugar"
+    //         }
+    //         })
+    //         .then((response)=>{
+    //           console.log(response)
+    //           // This dispatches the action to redux
+    //           // This needs to eventually change to an add-ingredient function, pushing them to array
+    //           this.props.getRecipe(response.data);
+    //         })
+    //         .catch((error)=>{
+    //           console.log(error)
+    //         })
+    // }
     
     render() {
         return (
@@ -68,12 +69,12 @@ class Form extends Component {
             </div>
         )
     }
+    
 }
 
 function mapStateToProps(state) {
   return {
-    value: state.value,
-    recipe: state.recipe
+    ingredients: state.ingredients
   }
 }
 
@@ -83,6 +84,9 @@ function mapDispatchToProps(dispatch) {
     // It's passed in as a payload that contains all the data
     getRecipe: function(recipes) {
       dispatch({type: 'GET_RECIPE', payload: recipes})
+    },
+    addIngredient: function(ingredient) {
+      dispatch({type: 'ADD_INGREDIENT', payload: ingredient})
     }
   }
 }
