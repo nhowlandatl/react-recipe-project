@@ -28,7 +28,6 @@ class Recipe extends Component {
   handleSubmit(event) {
     // convert the ingredient array into a string for Axios get request
     this.getRecipe(); 
-    // this.getRecipe(); 
     event.preventDefault();
   }
   
