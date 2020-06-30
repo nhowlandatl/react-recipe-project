@@ -4,7 +4,6 @@ import { Card, Row, Container, CardDeck } from 'react-bootstrap';
 
 class RecipeResults extends Component {
     render() { 
-        // console.log(this.props.ingredients) 
         // Create each ingredient card
         const recipes = this.props.recipes;
         return (
@@ -13,15 +12,21 @@ class RecipeResults extends Component {
             <div>
                 {recipes.map(recipe => {
                     return (
-                        <div>
-                            {recipe.title}
-                        </div>
+                        
+                            <CardDeck>
+                                <Card style={{width: '18rem'}}>
+                                    {recipe.title}
+                                    <img src={recipe.image} alt=""/>
+                                </Card>
+                            </CardDeck>
+                        
                     )
                 })}
             </div>
         )
       }
   }
+  
 
   function mapStateToProps(state) {
     return {

@@ -35,7 +35,7 @@ class Recipe extends Component {
   // Get recipe function
   // To do: pass in the ingredients below
     getRecipe = () => {
-      let recipeString = this.props.ingredients.join('%');
+      let recipeString = this.props.ingredients.join('%2');
       return axios({
         "method":"GET",
         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
@@ -53,8 +53,7 @@ class Recipe extends Component {
         })
         .then((response)=>{
           console.log(response)
-          // This dispatches the action to redux
-          // This needs to eventually change to an add-ingredient function, pushing them to array
+          // Dispatches the action to redux
           this.props.getRecipe(response.data);
           console.log(this.props.recipes)
         })
