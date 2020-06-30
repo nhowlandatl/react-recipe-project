@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Form from './components/Form';
 import Recipe from './components/Recipe';
 import Ingredient from './components/Ingredient'; 
+import RecipeResults from './components/RecipeResults';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
@@ -40,9 +41,10 @@ const store = createStore(reducer);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>  
-      <Recipe/>
       <Form/>
       <Ingredient/>
+      <Recipe/>
+      <RecipeResults/>
     </Provider>  
   </React.StrictMode>,
   document.getElementById('root')

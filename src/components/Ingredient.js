@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Row, Container, CardDeck, FormControl, Button, InputGroup } from 'react-bootstrap'; 
+import { Card, Container, CardDeck } from 'react-bootstrap'; 
 
 class Ingredient extends Component {
     render() { 
@@ -24,6 +24,7 @@ class Ingredient extends Component {
                 </div>
             )
       }
+      
   }
 
   function mapStateToProps(state) {
