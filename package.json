@@ -1,4 +1,5 @@
 {
+  "homepage": "https://nhowlandatl.github.io/react-recipe-project/",
   "name": "recipe-finder",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +8,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "gh-pages": "^3.1.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.0",
     "dotenv": "^8.2.0",
@@ -19,10 +21,12 @@
     "unirest": "^0.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
