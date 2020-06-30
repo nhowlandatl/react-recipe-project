@@ -24,7 +24,6 @@ class Ingredient extends Component {
                 </div>
             )
       }
-      
   }
 
   function mapStateToProps(state) {

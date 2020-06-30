@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 // Redux store setup
 const initialState = {
   value: '',
-  recipes: [{title: 'test recipe'}],
+  recipes: [{}],
   ingredients: [],
   recipeString: ''
 }
@@ -30,6 +30,13 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         ingredients: state.ingredients.concat(action.payload)
+      }
+      // reset the screen to default state
+    case 'RESET_ITEM': 
+      return {
+        ...state,
+        recipes: initialState.recipes,
+        ingredients: initialState.ingredients
       }
   default:
     return state;

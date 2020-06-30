@@ -56,6 +56,9 @@ class Recipe extends Component {
           // Dispatches the action to redux
           this.props.getRecipe(response.data);
           console.log(this.props.recipes)
+          // Clear the recipeString
+          recipeString = ''
+          console.log(recipeString);
         })
         .catch((error)=>{
           console.log(error)
