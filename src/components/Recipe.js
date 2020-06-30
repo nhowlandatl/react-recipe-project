@@ -22,16 +22,20 @@ class Recipe extends Component {
     }
     else return null
   }
+  
 
   // Kick off the find recipe function on submit
   handleSubmit(event) {
+    // convert the ingredient array into a string for Axios get request
     this.getRecipe(); 
     // this.getRecipe(); 
     event.preventDefault();
   }
+  
   // Get recipe function
   // To do: pass in the ingredients below
     getRecipe = () => {
+      let recipeString = this.props.ingredients.join('%');
       return axios({
         "method":"GET",
         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
@@ -44,7 +48,7 @@ class Recipe extends Component {
         "number":"5",
         "ranking":"1",
         "ignorePantry":"false",
-        "ingredients":"apples%2Cflour%2Csugar"
+        "ingredients": `${recipeString}`
         }
         })
         .then((response)=>{

@@ -14,7 +14,8 @@ import { Provider } from 'react-redux';
 const initialState = {
   value: '',
   recipes: [{title: 'test recipe'}],
-  ingredients: []
+  ingredients: [],
+  recipeString: ''
 }
 
 // Write functions for your reducer here

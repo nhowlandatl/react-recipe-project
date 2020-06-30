@@ -29,33 +29,6 @@ class Form extends Component {
     // Here I want to add the local react state value (what was just typed) to the redux store as an ingredient
     this.props.addIngredient(this.state.value);
   }
-    // getRecipe = () => {
-    //     return axios({
-    //         "method":"GET",
-    //         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-    //         "headers":{
-    //         "content-type":"application/octet-stream",
-    //         "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    //         "x-rapidapi-key":"40cb3a8377mshdada20219265609p14adc3jsn41c73db521e2",
-    //         "useQueryString":true
-    //         },"params":{
-    //         "number":"5",
-    //         "ranking":"1",
-    //         "ignorePantry":"false",
-    //         "ingredients":"apples%2Cflour%2Csugar"
-    //         }
-    //         })
-    //         .then((response)=>{
-    //           console.log(response)
-    //           // This dispatches the action to redux
-    //           // This needs to eventually change to an add-ingredient function, pushing them to array
-    //           this.props.getRecipe(response.data);
-    //         })
-    //         .catch((error)=>{
-    //           console.log(error)
-    //         })
-    // }
-    
     render() {
         return (
             <div>
