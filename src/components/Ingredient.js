@@ -4,7 +4,6 @@ import { Card, Container, CardDeck } from 'react-bootstrap';
 
 class Ingredient extends Component {
     render() { 
-        // console.log(this.props.ingredients) 
         // Create each ingredient card
         let ingredientCard = this.props.ingredients.map(ingredient => {
             return (

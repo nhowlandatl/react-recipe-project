@@ -7,6 +7,7 @@ import Form from './components/Form';
 import Recipe from './components/Recipe';
 import Ingredient from './components/Ingredient'; 
 import RecipeResults from './components/RecipeResults';
+import RecipeInfo from './components/RecipeInfo';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
@@ -32,7 +33,7 @@ function reducer(state = initialState, action) {
         ...state,
         ingredients: state.ingredients.concat(action.payload)
       }
-      // reset the screen to default state
+      // Reset the screen to default state
     case 'RESET_ITEM': 
       return {
         ...state,
@@ -59,6 +60,7 @@ ReactDOM.render(
       <Ingredient/>
       <Recipe/>
       <RecipeResults/>
+      <RecipeInfo/>
     </Provider>  
   </React.StrictMode>,
   document.getElementById('root')

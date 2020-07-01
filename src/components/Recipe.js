@@ -10,8 +10,7 @@ class Recipe extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-// Use relative and absolute positioning to get this lined up correctly below the recipe cards
-// Conditional statement: if recipe array is populated, generate a submit recipe button
+// Conditional statement: if ingredient array is populated, generate a submit recipe button
   render() {
     if (this.props.ingredients.length > 0 ) {
       return (
@@ -23,17 +22,16 @@ class Recipe extends Component {
     else return null
   }
   
-
   // Kick off the find recipe function on submit
   handleSubmit(event) {
-    // convert the ingredient array into a string for Axios get request
+    // Convert the ingredient array into a string for Axios get request
     this.getRecipe(); 
     event.preventDefault();
   }
   
   // Get recipe function
-  // To do: pass in the ingredients below
     getRecipe = () => {
+      // Make a string of ingredients to pass into API
       let recipeString = this.props.ingredients.join('%');
       return axios({
         "method":"GET",
@@ -51,13 +49,10 @@ class Recipe extends Component {
         }
         })
         .then((response)=>{
-          console.log(response)
           // Dispatches the action to redux
           this.props.getRecipe(response.data);
-          console.log(this.props.recipes)
-          // Clear the recipeString
+          // Clear the recipeString after submit
           recipeString = ''
-          console.log(recipeString);
         })
         .catch((error)=>{
           console.log(error)
@@ -67,7 +62,7 @@ class Recipe extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    // Need to pass in a parameter, any name, such as recipes (this is the array of recipes)
+    // Pass in recipes to redux store (this is an array of recipes)
     // It's passed in as a payload that contains all the data
     getRecipe: function(recipes) {
       dispatch({type: 'GET_RECIPE', payload: recipes})
@@ -75,10 +70,8 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-// Need ingredient array to pass into find recipe function
 function mapStateToProps(state) {
   return {
-    // recipes: state.recipes 
     ingredients: state.ingredients,
     recipes: state.recipes
   }

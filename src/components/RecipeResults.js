@@ -16,7 +16,7 @@ class RecipeResults extends Component {
         const recipes = this.props.recipes;
         return (
             // To do: 
-            // Render out more info with each recipe, find out why img isn't rendering
+            // Need to render correct recipe info
             <div>
                 <CardDeck>
                     {recipes.map(recipe => {
@@ -35,7 +35,6 @@ class RecipeResults extends Component {
                           })
                           .then((response)=>{
                             this.props.getRecipeInfo(response.data)
-                            console.log(response.data);
                             console.log(this.props.recipeInfo)
                           })
                           .catch((error)=>{
@@ -45,13 +44,13 @@ class RecipeResults extends Component {
                         return (
                             <Card style={{width: '18rem'}}>
                                 {recipe.title}
-                                <img src={recipe.image} alt=""/>
+                                <img src={recipe.image}/>
+                                {recipe.id}
                                 {this.props.recipes.length > 1 &&
-                                // Generate Recipe info button after recipe titles area rendered
-                                <Button variant="outline-secondary" onClick={this.handleRecipe}>Get recipe details</Button>
+                                // Conditionally generate Recipe info button after recipe titles area rendered
+                                <Button variant="outline-secondary" onClick={this.handleRecipe(recipe.id)}>Get recipe details</Button>
                                 }  
                             </Card>
-                            // Here I want to make it so when you click get recipe info, a big <div> is generated below the card deck with more info
                         )
                     })}
                 </CardDeck> 
@@ -64,11 +63,14 @@ class RecipeResults extends Component {
       }
     // Clear recipe results
     handleSubmit(event) {
-        this.props.clearResults(); 
-        event.preventDefault();
+      this.props.clearResults(); 
+      event.preventDefault();
     }
     // Get recipe info
     handleRecipe(event) {
+
+
+      
       this.getRecipeInfo();
       event.preventDefault();
     }
