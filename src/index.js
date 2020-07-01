@@ -38,7 +38,7 @@ function reducer(state = initialState, action) {
     case 'RESET_ITEM': 
       return {
         ...state,
-        recipes: initialState.recipes,
+        
         ingredients: initialState.ingredients
       }
     case 'RECIPE_INFO':
