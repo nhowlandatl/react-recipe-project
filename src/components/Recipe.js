@@ -14,8 +14,12 @@ class Recipe extends Component {
   render() {
     if (this.props.ingredients.length > 0 ) {
       return (
+        
         <div>
-          <Button variant="outline-secondary" onClick={this.handleSubmit}>Click to find recipes</Button>
+          {this.props.ingredients.length >= 1 &&
+              // Generate clear screen button after recipes are generated
+              <Button variant="outline-secondary" onClick={this.handleSubmit}>Click to find recipes</Button>
+          }  
         </div>
       )
     }

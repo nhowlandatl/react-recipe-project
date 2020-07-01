@@ -33,7 +33,7 @@ class RecipeResults extends Component {
             </CardDeck> 
             {this.props.recipes.length > 1 &&
               // Generate clear screen button after recipes are generated
-              <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear ingredients</Button>
+              <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button>
             }  
           </div>
         )
