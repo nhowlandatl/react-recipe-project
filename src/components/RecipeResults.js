@@ -16,12 +16,12 @@ class RecipeResults extends Component {
         const recipes = this.props.recipes;
         return (
             // To do: 
-            // Render out more info with each recipe
-            // How can I add a "if array is populated, then show a clear results button" below here?
+            // Render out more info with each recipe, find out why img isn't rendering
             <div>
                 <CardDeck>
                     {recipes.map(recipe => {
                       // Axios button function to get recipe info based on recipe ID
+                      // Ask James: why did this function only work after I prefaced with 'this'?
                       this.getRecipeInfo = () => {
                         return axios({
                           "method":"GET",
@@ -34,17 +34,22 @@ class RecipeResults extends Component {
                           }
                           })
                           .then((response)=>{
-                            console.log(response)
+                            this.props.getRecipeInfo(response.data)
+                            console.log(response.data);
+                            console.log(this.props.recipeInfo)
                           })
                           .catch((error)=>{
                             console.log(error)
-                          })
+                          })         
                       }
                         return (
                             <Card style={{width: '18rem'}}>
                                 {recipe.title}
                                 <img src={recipe.image} alt=""/>
-                                <Button variant="outline-secondary" onClick={this.handleRecipe}>Click to get recipe info</Button>
+                                {this.props.recipes.length > 1 &&
+                                // Generate Recipe info button after recipe titles area rendered
+                                <Button variant="outline-secondary" onClick={this.handleRecipe}>Get recipe details</Button>
+                                }  
                             </Card>
                             // Here I want to make it so when you click get recipe info, a big <div> is generated below the card deck with more info
                         )
@@ -66,13 +71,14 @@ class RecipeResults extends Component {
     handleRecipe(event) {
       this.getRecipeInfo();
       event.preventDefault();
-  }
+    }
   }
   
   function mapStateToProps(state) {
     return {
       recipes: state.recipes,
-      ingredients: state.ingredients
+      ingredients: state.ingredients,
+      recipeInfo: state.recipeInfo 
     }
   }
 
@@ -80,6 +86,9 @@ class RecipeResults extends Component {
     return {
       clearResults: function() {
         dispatch({type: 'RESET_ITEM'})
+      },
+      getRecipeInfo: function(recipeInfo) {
+        dispatch({type: 'RECIPE_INFO', payload: recipeInfo})
       }
     }
   }

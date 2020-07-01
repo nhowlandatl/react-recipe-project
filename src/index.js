@@ -15,7 +15,8 @@ const initialState = {
   value: '',
   recipes: [{}],
   ingredients: [],
-  recipeString: ''
+  recipeString: '',
+  recipeInfo: ''
 }
 
 // Write functions for your reducer here
@@ -37,6 +38,11 @@ function reducer(state = initialState, action) {
         ...state,
         recipes: initialState.recipes,
         ingredients: initialState.ingredients
+      }
+    case 'RECIPE_INFO':
+        return {
+          ...state,
+          recipeInfo: action.payload
       }
   default:
     return state;
