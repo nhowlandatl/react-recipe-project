@@ -15,27 +15,26 @@ class RecipeResults extends Component {
         const recipes = this.props.recipes;
         return (
           <div>
-              <CardDeck>
-                  {recipes.map(recipe => {
-                    // Axios button function to get recipe info based on recipe ID
-                    // Ask James: why did this function only work after I prefaced with 'this'?
-                    return (
-                      <Card style={{width: '18rem'}}>
-                          {recipe.title}
-                          <img src={recipe.image}/>
-                          {recipe.id}
-                          {this.props.recipes.length > 1 &&
-                          // Conditionally generate Recipe info button after recipe titles area rendered
-                            <Button variant="outline-secondary" onClick={() => this.handleRecipe(recipe.id)}>Get recipe details</Button>
-                          }  
-                      </Card>
-                    )
-                  })}
-              </CardDeck> 
-              {this.props.recipes.length > 1 &&
-                // Generate clear screen button after recipes are generated
-                <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear results</Button>
-              }  
+            <CardDeck>
+                {recipes.map(recipe => {
+                  // Axios button function to get recipe info based on recipe ID
+                  // Ask James: why did this function only work after I prefaced with 'this'?
+                  return (
+                    <Card style={{width: '18rem'}}>
+                        {recipe.title}
+                        <img src={recipe.image}/>
+                        {this.props.recipes.length > 1 &&
+                        // Conditionally generate Recipe info button after recipe titles area rendered
+                        <Button variant="outline-secondary" onClick={() => this.handleRecipe(recipe.id)}>Get recipe details</Button>
+                        }
+                    </Card>
+                  )
+                })}
+            </CardDeck> 
+            {this.props.recipes.length > 1 &&
+              // Generate clear screen button after recipes are generated
+              <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear ingredients</Button>
+            }  
           </div>
         )
       }

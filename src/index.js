@@ -8,6 +8,7 @@ import Recipe from './components/Recipe';
 import Ingredient from './components/Ingredient'; 
 import RecipeResults from './components/RecipeResults';
 import RecipeInfo from './components/RecipeInfo';
+import Header from './components/Header';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
@@ -56,6 +57,7 @@ const store = createStore(reducer);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>  
+      <Header/>
       <Form/>
       <Ingredient/>
       <Recipe/>

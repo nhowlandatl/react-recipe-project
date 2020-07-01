@@ -32,7 +32,7 @@ class Recipe extends Component {
   // Get recipe function
     getRecipe = () => {
       // Make a string of ingredients to pass into API
-      let recipeString = this.props.ingredients.join('%');
+      let recipeString = this.props.ingredients.join('&');
       return axios({
         "method":"GET",
         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
