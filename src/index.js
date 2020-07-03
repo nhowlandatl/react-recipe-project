@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
 import * as serviceWorker from './serviceWorker';
 import Form from './components/Form';
 import Recipe from './components/Recipe';
@@ -9,6 +12,7 @@ import Ingredient from './components/Ingredient';
 import RecipeResults from './components/RecipeResults';
 import RecipeInfo from './components/RecipeInfo';
 import Header from './components/Header';
+import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
@@ -38,7 +42,6 @@ function reducer(state = initialState, action) {
     case 'RESET_ITEM': 
       return {
         ...state,
-        
         ingredients: initialState.ingredients
       }
     case 'RECIPE_INFO':
@@ -56,7 +59,8 @@ const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>  
+    <Provider store={store}>
+      <App/>
       <Header/>
       <Form/>
       <Ingredient/>
@@ -72,4 +76,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-

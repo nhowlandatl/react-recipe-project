@@ -13,7 +13,6 @@ class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // This should change to use the Redux store to save the ingredients as an array
   // Ingredient list can map to redux store
   handleChange(event) {    
     this.setState({value: event.target.value});  
