@@ -12,7 +12,7 @@ import Ingredient from './components/Ingredient';
 import RecipeResults from './components/RecipeResults';
 import RecipeInfo from './components/RecipeInfo';
 import Header from './components/Header';
-import App from './App';
+import Popup from './components/Popup';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 
@@ -60,7 +60,7 @@ const store = createStore(reducer);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App/>
+      <Popup/>
       <Header/>
       <Form/>
       <Ingredient/>
