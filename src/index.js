@@ -44,6 +44,11 @@ function reducer(state = initialState, action) {
         ...state,
         ingredients: initialState.ingredients
       }
+    case 'RESET_RECIPES':
+      return {
+        ...state,
+        recipes: initialState.recipes
+      }
     case 'RECIPE_INFO':
         return {
           ...state,

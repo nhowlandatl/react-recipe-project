@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Card, Button, Row, Container, CardDeck } from 'react-bootstrap'; 
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBView, MDBIcon } from 'mdbreact';
 
 class RecipeResults extends Component {
     constructor(props) {
@@ -31,9 +32,9 @@ class RecipeResults extends Component {
                   )
                 })}
             </CardDeck> 
-            {this.props.recipes.length > 1 &&
-              // Generate clear screen button after recipes are generated
-              <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button>
+            {(this.props.recipes.length > 1 || this.props.ingredients.length > 0) ?
+              // Generate clear screen button after ingredients are generated
+              <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button> : null
             }  
           </div>
         )
