@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/react-recipe-project/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/react-recipe-project/static/js/main.360a7398.chunk.js",
-    "main.js.map": "/react-recipe-project/static/js/main.360a7398.chunk.js.map",
+    "main.js": "/react-recipe-project/static/js/main.fe4471dd.chunk.js",
+    "main.js.map": "/react-recipe-project/static/js/main.fe4471dd.chunk.js.map",
     "runtime-main.js": "/react-recipe-project/static/js/runtime-main.90f970cb.js",
     "runtime-main.js.map": "/react-recipe-project/static/js/runtime-main.90f970cb.js.map",
     "static/css/2.f3958377.chunk.css": "/react-recipe-project/static/css/2.f3958377.chunk.css",
-    "static/js/2.3c559ac3.chunk.js": "/react-recipe-project/static/js/2.3c559ac3.chunk.js",
-    "static/js/2.3c559ac3.chunk.js.map": "/react-recipe-project/static/js/2.3c559ac3.chunk.js.map",
+    "static/js/2.b4f31555.chunk.js": "/react-recipe-project/static/js/2.b4f31555.chunk.js",
+    "static/js/2.b4f31555.chunk.js.map": "/react-recipe-project/static/js/2.b4f31555.chunk.js.map",
     "index.html": "/react-recipe-project/index.html",
-    "precache-manifest.b93b5742a8e2a1441a8c17dac311ea80.js": "/react-recipe-project/precache-manifest.b93b5742a8e2a1441a8c17dac311ea80.js",
+    "precache-manifest.7004be460941bf73b60fd3c84f3e95e8.js": "/react-recipe-project/precache-manifest.7004be460941bf73b60fd3c84f3e95e8.js",
     "service-worker.js": "/react-recipe-project/service-worker.js",
     "static/css/2.f3958377.chunk.css.map": "/react-recipe-project/static/css/2.f3958377.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "/react-recipe-project/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.3c559ac3.chunk.js.LICENSE.txt": "/react-recipe-project/static/js/2.3c559ac3.chunk.js.LICENSE.txt",
+    "static/js/2.b4f31555.chunk.js.LICENSE.txt": "/react-recipe-project/static/js/2.b4f31555.chunk.js.LICENSE.txt",
     "static/media/mdb.css": "/react-recipe-project/static/media/arrow_right.8ef6a08c.svg",
     "static/media/all.min.css": "/react-recipe-project/static/media/fa-solid-900.f3a7d3b5.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.90f970cb.js",
     "static/css/2.f3958377.chunk.css",
-    "static/js/2.3c559ac3.chunk.js",
+    "static/js/2.b4f31555.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.360a7398.chunk.js"
+    "static/js/main.fe4471dd.chunk.js"
   ]
 }
