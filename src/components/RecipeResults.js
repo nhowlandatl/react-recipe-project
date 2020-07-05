@@ -10,6 +10,7 @@ class RecipeResults extends Component {
         this.state = {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearRecipes = this.clearRecipes.bind(this);
       }
     render() { 
         // Create each ingredient card
@@ -23,17 +24,13 @@ class RecipeResults extends Component {
                   return (
                     <MDBCol size="3" className='justify-content-center'>
                       <MDBCard>
-                      {recipe.title}
+                        {recipe.title}
                         <img src={recipe.image}/>
-                        
                         {this.props.recipes.length > 1 &&
-                        // Conditionally generate Recipe info button after recipe titles area rendered
-                        <Button variant="outline-secondary" onClick={() => this.handleRecipe(recipe.id)}>Get recipe details</Button>
+                          // Conditionally generate Recipe info button after recipe titles area rendered
+                          <Button variant="outline-secondary" onClick={() => this.handleRecipe(recipe.id)}>Get recipe details</Button>
                         }
-
-
                       </MDBCard>
-                        
                     </MDBCol>
                   )
                 })}
@@ -50,17 +47,18 @@ class RecipeResults extends Component {
         )
       }
 
-    // Clear recipe results
+    // Clear ingredients on screen
     handleSubmit(event) {
       this.props.clearResults(); 
       event.preventDefault();
     }
+    // Clear recipes on screen
     clearRecipes(event) {
       this.props.clearRecipes(); 
       event.preventDefault();
     }
 
-    // Get recipe info
+    // Get recipe info from API and pass to RecipeInfo component for modal rendering
     handleRecipe = id => {
       return axios({
         "method":"GET",
@@ -104,5 +102,4 @@ class RecipeResults extends Component {
     }
   }
   
-
   export default connect(mapStateToProps, mapDispatchToProps)(RecipeResults);
