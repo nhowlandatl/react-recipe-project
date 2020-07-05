@@ -9,7 +9,6 @@ class RecipeInfo extends Component {
         super(props);
         this.state = {
         };
-        this.clearRecipes = this.clearRecipes.bind(this);
       }
     render() {
         const htmlRecipeSummary = `<div>${this.props.recipeInfo.summary}</div>`
@@ -28,17 +27,11 @@ class RecipeInfo extends Component {
                     // Want to add an "X" button here to close the recipe info
                     }
                 </Card>
-                {this.props.recipes.length > 1 &&
-              // Generate clear screen button after recipes are generated
-              <Button variant="outline-secondary" onClick={this.clearRecipes}>Clear all recipes</Button>
-            }  
+                  
             </div>
         )
     }
-    clearRecipes(event) {
-        this.props.clearRecipes(); 
-        event.preventDefault();
-    }
+    
 }
 
 function mapDispatchToProps(dispatch) {

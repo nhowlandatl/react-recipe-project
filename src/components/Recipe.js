@@ -46,7 +46,7 @@ class Recipe extends Component {
         "x-rapidapi-key":"40cb3a8377mshdada20219265609p14adc3jsn41c73db521e2",
         "useQueryString":true
         },"params":{
-        "number":"5",
+        "number":"20",
         "ranking":"1",
         "ignorePantry":"false",
         "ingredients": `${recipeString}`
