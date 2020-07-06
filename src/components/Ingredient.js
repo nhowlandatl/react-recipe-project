@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row } from 'react-bootstrap'; 
-import { MDBContainer, MDBCol } from "mdbreact";
+import { MDBContainer, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
 
 class Ingredient extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
     render() { 
         // Create each ingredient card
         let ingredientCard = this.props.ingredients.map(ingredient => {
             return (
-                <MDBCol className="d-flex border border-dark">
+                <MDBCol className="d-inline border border-dark">
                 {ingredient}
+                <MDBIcon className="red-text"
+                  style={{float: 'right' }} 
+                  onClick={() => this.deleteIngredient(ingredient) } icon="times-circle" />
                 </MDBCol>
             )
         })
@@ -24,6 +32,10 @@ class Ingredient extends Component {
                 </div>
             )
       }
+    deleteIngredient(ing) {
+      this.props.deleteIngredient(ing); 
+      console.log(this.props.ingredients)
+    }
   }
 
   function mapStateToProps(state) {
@@ -31,5 +43,14 @@ class Ingredient extends Component {
       ingredients: state.ingredients 
     }
   }
+
+  function mapDispatchToProps(dispatch) {
+    return {
+      deleteIngredient: function(ingredient) {
+        dispatch({type: 'DELETE_INGREDIENT', payload: ingredient})
+      }
+    }
+  }
   
-  export default connect(mapStateToProps)(Ingredient);
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Ingredient);

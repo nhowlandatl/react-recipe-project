@@ -15,6 +15,7 @@ import Header from './components/Header';
 import Popup from './components/Popup';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
+import ClearButton from './components/ClearButton';
 
 // Redux store setup
 const initialState = {
@@ -58,6 +59,11 @@ function reducer(state = initialState, action) {
         return {
           ...state,
           recipeInfo: initialState.recipeInfo
+      }
+    case 'DELETE_INGREDIENT':
+        return {
+          ...state,
+          ingredients: state.ingredients.filter(ingredient => ingredient !== action.payload)
         }
   default:
     return state;
@@ -73,6 +79,7 @@ ReactDOM.render(
       <Popup/>
       <Header/>
       <Form/>
+      <ClearButton/>
       <Ingredient/>
       <Recipe/>
       <RecipeResults/>
