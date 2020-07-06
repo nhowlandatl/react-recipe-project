@@ -54,6 +54,11 @@ function reducer(state = initialState, action) {
           ...state,
           recipeInfo: action.payload
       }
+    case 'RECIPE_INFO_CLEAR':
+        return {
+          ...state,
+          recipeInfo: initialState.recipeInfo
+        }
   default:
     return state;
   }

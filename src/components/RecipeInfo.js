@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap'; 
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-import { MDBIcon, MDBModal, MDBModalHeader } from 'mdbreact';
+import { MDBIcon, MDBBtn, MDBModal, MDBModalHeader } from 'mdbreact';
 
 class RecipeInfo extends Component {
 
@@ -21,6 +21,10 @@ class RecipeInfo extends Component {
           [modalNumber]: !this.state[modalNumber]
         });
     }
+    // Clear the recipeInfo redux store after closing modal
+    onCloseModal = () => {
+        this.clearRecipeInfo();
+      }
     render() {
         const htmlRecipeSummary = `<div>${this.props.recipeInfo.summary}</div>`
         const recipeImage = this.props.recipeInfo.image;
@@ -28,9 +32,10 @@ class RecipeInfo extends Component {
         return (
             <div>
                 {this.props.recipeInfo && 
-                    <MDBModal isOpen={this.state.modal14} toggle={this.handleClose} centered>
-                        <MDBModalHeader toggle={this.toggle(14)}>
-                            <MDBIcon icon='utensils' />
+                    <MDBModal isOpen={this.state.modal14} centered>
+                        <MDBBtn data-dismiss="modal" onClick={()=>this.onCloseModal()}>Close</MDBBtn>
+                        <MDBModalHeader >
+                            <MDBIcon icon='utensils' className="cyan-text" style={{marginRight: "1rem"}}/>
                             {recipeTitle}
                         </MDBModalHeader>
                         <img src={`${recipeImage}`} alt=""/>
@@ -41,7 +46,6 @@ class RecipeInfo extends Component {
                 // Generate Recipe info if get recipe info is clicked
                 // Want to add an "X" button here to close the recipe info
                 }
-          
             </div>
         )
     }
@@ -49,12 +53,18 @@ class RecipeInfo extends Component {
         this.props.clearRecipes(); 
         event.preventDefault();
     }
+    clearRecipeInfo() {
+        this.props.clearRecipeInfo();
+    }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
       clearRecipes: function() {
         dispatch({type: 'RESET_RECIPES'})
+        },
+    clearRecipeInfo: function() {
+        dispatch({type: 'RECIPE_INFO_CLEAR'})
         }
     }
   }
