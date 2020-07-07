@@ -12,7 +12,7 @@ export class ClearButton extends Component {
       }
     render() {
         return (
-            <div>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
                 {(this.props.recipes.length > 1 || this.props.ingredients.length > 0) ?
               // Generate clear screen button after ingredients are generated
               <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button> : null

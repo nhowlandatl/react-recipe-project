@@ -20,7 +20,6 @@ class RecipeResults extends Component {
             <MDBRow>
                 {recipes.map(recipe => {
                   // Axios button function to get recipe info based on recipe ID
-                  // Ask James: why did this function only work after I prefaced with 'this'?
                   return (
                     <MDBCol size="3" className='justify-content-center'>
                       <MDBCard>
@@ -35,14 +34,6 @@ class RecipeResults extends Component {
                   )
                 })}
             </MDBRow> 
-            {(this.props.recipes.length > 1 || this.props.ingredients.length > 0) ?
-              // Generate clear screen button after ingredients are generated
-              <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button> : null
-            }  
-            {this.props.recipes.length > 1 &&
-                // Generate clear screen button after recipes are generated
-                <Button variant="outline-secondary" onClick={this.clearRecipes}>Clear all recipes</Button>
-                }
           </MDBContainer>
         )
       }
@@ -103,3 +94,13 @@ class RecipeResults extends Component {
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(RecipeResults);
+
+  // Clear functions
+  // {(this.props.recipes.length > 1 || this.props.ingredients.length > 0) ?
+  //   // Generate clear screen button after ingredients are generated
+  //   <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button> : null
+  // }  
+  // {this.props.recipes.length > 1 &&
+  //     // Generate clear screen button after recipes are generated
+  //     <Button variant="outline-secondary" onClick={this.clearRecipes}>Clear all recipes</Button>
+  //     }

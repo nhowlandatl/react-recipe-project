@@ -4,7 +4,7 @@ import { FormControl, Button, InputGroup } from 'react-bootstrap';
 import { MDBInputGroup, MDBInput, MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
 class Form extends Component {
-// Need to refactor to stop using the local state
+// Use local state for what's being typed
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // Ingredient list maps to Redux store
+// Ingredient list maps to Redux store
   handleChange(event) {    
     this.setState({value: event.target.value});  
   }
@@ -29,7 +29,7 @@ class Form extends Component {
     if (this.state.value.length == 0) {
       console.log('alert')
     } else
-    // Here I want to add the local react state value (what was just typed) to the redux store as an ingredient
+// Add the local react state value (what was just typed) to the redux store as an ingredient
     this.props.addIngredient(this.state.value);
   }
     render() {

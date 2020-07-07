@@ -15,7 +15,7 @@ class Recipe extends Component {
     if (this.props.ingredients.length > 0 ) {
       return (
         
-        <div>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
           {this.props.ingredients.length >= 1 &&
               // Generate clear screen button after recipes are generated
               <Button variant="outline-secondary" onClick={this.handleSubmit}>Click to find recipes</Button>
@@ -54,6 +54,7 @@ class Recipe extends Component {
         })
         .then((response)=>{
           // Dispatches the action to redux
+          console.log(response.data)
           this.props.getRecipe(response.data);
           // Clear the recipeString after submit
           recipeString = ''
