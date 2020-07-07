@@ -17,7 +17,7 @@ export class ClearButton extends Component {
               // Generate clear screen button after ingredients are generated
               <Button variant="outline-secondary" onClick={this.handleSubmit}>Clear all ingredients</Button> : null
             }  
-            {(this.props.recipes.length > 1 || this.props.recipes.length == 0) ?
+            {(this.props.recipes.length > 1 || this.props.recipes.length === 0) ?
               // Generate clear screen button after recipes are generated
               <Button variant="outline-secondary" onClick={this.clearRecipes}>Clear all recipes</Button> : null
             }

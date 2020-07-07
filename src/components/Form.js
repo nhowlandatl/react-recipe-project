@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormControl, Button, InputGroup } from 'react-bootstrap'; 
-import { MDBInputGroup, MDBInput, MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+// import { FormControl, Button, InputGroup } from 'react-bootstrap';  
+import { MDBInput, MDBContainer, MDBBtn } from "mdbreact";
 
 class Form extends Component {
 // Use local state for what's being typed
@@ -24,17 +24,17 @@ class Form extends Component {
     event.target.className += " was-validated";
     this.addIngredient(); 
   }
-  // Add ingredient function
+  // Add ingredient function and validate not blank
   addIngredient = () => {
-    if (this.state.value.length == 0) {
-      console.log('alert')
+    if (this.state.value.length === 0) {
     } else
 // Add the local react state value (what was just typed) to the redux store as an ingredient
     this.props.addIngredient(this.state.value);
+    console.log(this.props.ingredients)
   }
     render() {
       return (
-        // Styled attempt somewhat working
+        // Enter ingredient prompt w/ empty string validation
         <MDBContainer>
           <form
             className="needs-validation"
@@ -59,8 +59,7 @@ class Form extends Component {
               </MDBInput>
           </form>
         </MDBContainer>
-
-            // Initial working 
+            // Initial working form input 
             // <div>
             //     <InputGroup className="mb-3">
             //       <InputGroup.Prepend>
@@ -81,8 +80,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    // Need to pass in a parameter, any name, such as recipes (this is the array of recipes)
-    // It's passed in as a payload that contains all the data
     getRecipe: function(recipes) {
       dispatch({type: 'GET_RECIPE', payload: recipes})
     },

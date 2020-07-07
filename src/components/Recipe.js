@@ -14,11 +14,10 @@ class Recipe extends Component {
   render() {
     if (this.props.ingredients.length > 0 ) {
       return (
-        
         <div style={{display: 'flex', justifyContent: 'center'}}>
           {this.props.ingredients.length >= 1 &&
-              // Generate clear screen button after recipes are generated
-              <Button variant="outline-secondary" onClick={this.handleSubmit}>Click to find recipes</Button>
+            // Generate clear screen button after recipes are generated
+            <Button variant="outline-secondary" onClick={this.handleSubmit}>Click to find recipes</Button>
           }  
         </div>
       )
@@ -35,8 +34,8 @@ class Recipe extends Component {
   
   // Get recipe function
     getRecipe = () => {
-      // Make a string of ingredients to pass into API
-      let recipeString = this.props.ingredients.join('&');
+      // Make a string of ingredients to pass into API get request
+      let recipeString = this.props.ingredients.join(',');
       return axios({
         "method":"GET",
         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",

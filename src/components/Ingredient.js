@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row } from 'react-bootstrap'; 
-import { MDBContainer, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
+import { MDBContainer, MDBCol, MDBIcon } from "mdbreact";
 
 class Ingredient extends Component {
   constructor(props) {
@@ -34,7 +34,6 @@ class Ingredient extends Component {
       }
     deleteIngredient(ing) {
       this.props.deleteIngredient(ing); 
-      console.log(this.props.ingredients)
     }
   }
 
