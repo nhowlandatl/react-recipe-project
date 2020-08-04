@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c2d3f62de66dfc9f1f90725086475a26",
+    "revision": "3de00956a630a234aabecde266ce4c7c",
     "url": "/react-recipe-project/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-recipe-project/static/css/2.f3958377.chunk.css"
   },
   {
-    "revision": "85912a9efb642ac436d1",
+    "revision": "88f2b75f40425f6cb9e8",
     "url": "/react-recipe-project/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-recipe-project/static/js/2.e0888d89.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "85912a9efb642ac436d1",
-    "url": "/react-recipe-project/static/js/main.09fd23f8.chunk.js"
+    "revision": "88f2b75f40425f6cb9e8",
+    "url": "/react-recipe-project/static/js/main.1e61331a.chunk.js"
   },
   {
     "revision": "7b0d155b2dab35de03b2",
