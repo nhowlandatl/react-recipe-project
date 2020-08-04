@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Button } from 'react-bootstrap'; 
-import { MDBCard, MDBContainer, MDBRow, MDBCol } from 'mdbreact';
+import { MDBCard, MDBContainer, MDBRow, MDBCol, MDBCardImage } from 'mdbreact';
 
 class RecipeResults extends Component {
   constructor(props) {
@@ -15,20 +15,38 @@ class RecipeResults extends Component {
   render() { 
   // Create each ingredient card
   const recipes = this.props.recipes;
+  // console.log(missedIngredients) 
     return (
       <MDBContainer>
         <MDBRow>
             {recipes.map(recipe => {
               // Axios button function to get recipe info based on recipe ID
               return (
-                <MDBCol size="3" className='justify-content-center'>
-                  <MDBCard>
-                    {recipe.title}
-                    <img src={recipe.image}/>
-                    {this.props.recipes.length > 1 &&
+                <MDBCol xs="12" sm="6" md="4" lg="3"  className='justify-content-center'>
+                  <MDBCard className="h-100">
+                    {recipe.title &&
+                      <h3 className='h3-responsive text-default'>{recipe.title}</h3>
+                    }
+                    <br/>
+                    {recipe.missedIngredients &&
+                      <p className='font-weight-bold text-secondary my-auto'>Missing ingredients:</p>
+                    }
+                    {recipe.missedIngredients && 
+                      recipe.missedIngredients.map(missedIngredient => {
+                        return (
+                            <div>{missedIngredient.name}</div> 
+                        )
+                      })
+                    }
+                    {recipe.image && 
+                      <MDBCardImage
+                      src={recipe.image} className="mt-auto"
+                   />
+                    }
+                    {this.props.recipes.length> 1 &&
                       // Conditionally generate Recipe info button after recipe titles area rendered
                       <Button variant="outline-secondary" onClick={() => this.handleRecipe(recipe.id)}>Get recipe details</Button>
-                    }
+                    } 
                   </MDBCard>
                 </MDBCol>
               )

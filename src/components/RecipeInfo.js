@@ -29,6 +29,7 @@ class RecipeInfo extends Component {
         const htmlRecipeSummary = `<div>${this.props.recipeInfo.summary}</div>`
         const recipeImage = this.props.recipeInfo.image;
         const recipeTitle = this.props.recipeInfo.title;
+        const allIngredients = this.props.recipeInfo.extendedIngredients;
         return (
             <div>
                 {this.props.recipeInfo && 
@@ -37,7 +38,13 @@ class RecipeInfo extends Component {
                         <MDBModalHeader >
                             <MDBIcon icon='utensils' className="cyan-text" style={{marginRight: "1rem"}}/>
                             {recipeTitle}
+                            
                         </MDBModalHeader>
+                        {/* {allIngredients.map(ingredient => {
+                            return (
+                                <p>{ingredient.name}</p>
+                            )              
+                        })} */}
                         <img src={`${recipeImage}`} alt=""/>
                         {ReactHtmlParser(htmlRecipeSummary)}
                         <br></br>
