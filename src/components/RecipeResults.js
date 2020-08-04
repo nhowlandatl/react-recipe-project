@@ -73,7 +73,7 @@ class RecipeResults extends Component {
       "headers":{
       "content-type":"application/octet-stream",
       "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key":"40cb3a8377mshdada20219265609p14adc3jsn41c73db521e2",
+      "x-rapidapi-key":`${process.env.REACT_APP_API_KEY}`,
       "useQueryString":true
       }
       })
