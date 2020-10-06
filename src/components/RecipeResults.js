@@ -25,11 +25,11 @@ class RecipeResults extends Component {
                 <MDBCol xs="12" sm="6" md="4" lg="3"  className='justify-content-center'>
                   <MDBCard className="h-100">
                     {recipe.title &&
-                      <h3 className='h3-responsive text-default'>{recipe.title}</h3>
+                      <h3 className='h3-responsive text-default mb-auto'>{recipe.title}</h3>
                     }
                     <br/>
                     {recipe.missedIngredients &&
-                      <p className='font-weight-bold text-secondary my-auto'>Missing ingredients:</p>
+                      <p className='font-weight-bold text-secondary '>Missing ingredients:</p>
                     }
                     {recipe.missedIngredients && 
                       recipe.missedIngredients.map(missedIngredient => {

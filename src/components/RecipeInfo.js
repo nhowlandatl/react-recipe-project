@@ -29,7 +29,7 @@ class RecipeInfo extends Component {
         const htmlRecipeSummary = `<div>${this.props.recipeInfo.summary}</div>`
         const recipeImage = this.props.recipeInfo.image;
         const recipeTitle = this.props.recipeInfo.title;
-        const allIngredients = this.props.recipeInfo.extendedIngredients;
+        // const allIngredients = this.props.recipeInfo.extendedIngredients; 
         return (
             <div>
                 {this.props.recipeInfo && 
