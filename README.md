@@ -1,5 +1,5 @@
-Redux actions and reducers in /src/index.js
-Front-end components in /src/components/
+1) Redux actions and reducers in /src/index.js
+2) Front-end components in /src/components/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
